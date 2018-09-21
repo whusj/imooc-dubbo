@@ -8,14 +8,13 @@
         <outputRelativeToContentRoot value="true" />
         <module name="imooc-dubbo-common" />
         <module name="imooc-dubbo-item-service" />
-        <module name="imooc-dubbo-order-service" />
-        <module name="imooc-dubbo-web" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="imooc-dubbo" target="1.5" />
       <module name="imooc-dubbo-common" target="1.5" />
-      <module name="imooc-dubbo-item-service" target="1.8" />
+      <module name="imooc-dubbo-item-service" target="1.5" />
+      <module name="imooc-dubbo-mybatis" target="1.8" />
       <module name="imooc-dubbo-order-service" target="1.8" />
       <module name="imooc-dubbo-web" target="1.8" />
     </bytecodeTargetLevel>

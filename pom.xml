@@ -249,8 +249,6 @@
     <modules>
         <module>imooc-dubbo-common</module>
         <module>imooc-dubbo-item-service</module>
-        <module>imooc-dubbo-order-service</module>
-        <module>imooc-dubbo-web</module>
     </modules>
 
 

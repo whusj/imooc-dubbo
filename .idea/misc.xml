@@ -4,9 +4,6 @@
     <option name="originalFiles">
       <list>
         <option value="$PROJECT_DIR$/pom.xml" />
-        <option value="$PROJECT_DIR$/imooc-dubbo-item-service/pom.xml" />
-        <option value="$PROJECT_DIR$/imooc-dubbo-order-service/pom.xml" />
-        <option value="$PROJECT_DIR$/imooc-dubbo-web/pom.xml" />
       </list>
     </option>
   </component>
