@@ -3,7 +3,6 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$//imooc-dubbo.iml" filepath="$PROJECT_DIR$//imooc-dubbo.iml" />
-      <module fileurl="file://$PROJECT_DIR$/imooc-dubbo-common/imooc-dubbo-common.iml" filepath="$PROJECT_DIR$/imooc-dubbo-common/imooc-dubbo-common.iml" />
     </modules>
   </component>
 </project>
