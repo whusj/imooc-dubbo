@@ -4,7 +4,6 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$//imooc-dubbo.iml" filepath="$PROJECT_DIR$//imooc-dubbo.iml" />
       <module fileurl="file://$PROJECT_DIR$/imooc-dubbo-common/imooc-dubbo-common.iml" filepath="$PROJECT_DIR$/imooc-dubbo-common/imooc-dubbo-common.iml" />
-      <module fileurl="file://$PROJECT_DIR$/imooc-dubbo-item-service/imooc-dubbo-item-service.iml" filepath="$PROJECT_DIR$/imooc-dubbo-item-service/imooc-dubbo-item-service.iml" />
     </modules>
   </component>
 </project>
