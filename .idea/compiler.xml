@@ -17,6 +17,7 @@
       <module name="imooc-dubbo-item-service" target="1.8" />
       <module name="imooc-dubbo-order-service" target="1.8" />
       <module name="imooc-dubbo-web" target="1.8" />
+      <module name="imooc-mybatis" target="1.8" />
     </bytecodeTargetLevel>
   </component>
 </project>

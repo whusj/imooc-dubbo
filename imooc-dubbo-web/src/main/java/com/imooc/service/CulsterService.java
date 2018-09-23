@@ -1,8 +1,10 @@
 package com.imooc.service;
 
 import com.imooc.po.Items;
+import com.imooc.po.Orders;
 
-public interface ItemsService {
+public interface CulsterService {
+
 
     /**
      * @Description: 测试接口
@@ -23,5 +25,20 @@ public interface ItemsService {
      * @Description: 购买商品成功后减少库存
      */
     public boolean displayReduceCounts(String itemId, int buyCounts);
+
+    /**
+     * @Description: 接口测试
+     */
+    public String ordersSayHello(String name);
+
+    /**
+     * @Description: 根据订单id查询订单
+     */
+    public Orders getOrder(String orderId);
+
+    /**
+     * @Description: 下订单
+     */
+    public boolean createOrder(String itemId,int orderNum);
 
 }

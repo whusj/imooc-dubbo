@@ -1,10 +1,8 @@
 package com.imooc.controller;
 
-import com.imooc.service.OrderService;
-import com.imooc.service.impl.RefService;
-import com.imooc.service.impl.RefService2;
+import com.imooc.po.Orders;
+import com.imooc.service.CulsterService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.core.annotation.Order;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -13,11 +11,23 @@ import org.springframework.web.bind.annotation.RestController;
 public class OrderController {
 
     @Autowired
-    private RefService2 orderService;
+    private CulsterService culsterService;
 
     @RequestMapping("/say")
     public String sayHello(String name) {
         System.out.println("Dubbo consummer OrderController[name: "+name+"]");
-        return orderService.sayHello(name);
+        return culsterService.ordersSayHello(name);
+    }
+
+    @RequestMapping("/createOrder")
+    public boolean createOrder(String itemId,int orderNum) {
+        System.out.println("Dubbo consummer OrderController-createOrder()[itemId: "+itemId+",orderNum:"+orderNum+"]");
+        return culsterService.createOrder(itemId,orderNum);
+    }
+
+    @RequestMapping("/getOrder")
+    public Orders getOrder(String orderId) {
+        System.out.println("Dubbo consummer OrderController-getOrder()[orderId: "+orderId+"]");
+        return culsterService.getOrder(orderId);
     }
 }
