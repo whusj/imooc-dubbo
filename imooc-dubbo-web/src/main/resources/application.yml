@@ -1,0 +1,10 @@
+server :
+  port : 9090
+dubbo :
+  protocol :
+    name  : dubbo
+  application :
+    name : consumer
+  registry :
+    address : zookeeper://192.168.202.61:2181
+  packageName : com.imooc.service.impl
