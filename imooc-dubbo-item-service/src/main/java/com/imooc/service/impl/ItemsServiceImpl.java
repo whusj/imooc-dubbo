@@ -30,10 +30,15 @@ public class ItemsServiceImpl implements ItemsService{
 
     @Override
     public boolean displayReduceCounts(String itemId, int buyCounts) {
-        Items reduceItem = new Items();
-        reduceItem.setId(itemId);
-        reduceItem.setBuyCounts(buyCounts);
-        itemsMapper.reduceCounts(reduceItem);
-        return true;
+        int count = getItemCounts(itemId);
+        if (count < buyCounts){
+            return false;
+        }else {
+            Items reduceItem = new Items();
+            reduceItem.setId(itemId);
+            reduceItem.setBuyCounts(buyCounts);
+            itemsMapper.reduceCounts(reduceItem);
+            return true;
+        }
     }
 }

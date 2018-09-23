@@ -41,4 +41,5 @@ public interface CulsterService {
      */
     public boolean createOrder(String itemId,int orderNum);
 
+    public boolean displayBuy(String itemId,int orderNum);
 }

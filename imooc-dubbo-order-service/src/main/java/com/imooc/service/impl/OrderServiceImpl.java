@@ -5,7 +5,6 @@ import com.imooc.service.OrderService;
 import com.imooc.mapper.OrdersMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import com.imooc.po.Orders;
-
 import java.util.UUID;
 
 @Service(interfaceClass = OrderService.class) //dubbo的service，注入接口
