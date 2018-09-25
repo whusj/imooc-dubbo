@@ -1,11 +1,15 @@
 package com.imooc.curator.utils;
 
 import java.util.concurrent.CountDownLatch;
+
+import org.apache.curator.RetryPolicy;
 import org.apache.curator.framework.CuratorFramework;
+import org.apache.curator.framework.CuratorFrameworkFactory;
 import org.apache.curator.framework.recipes.cache.PathChildrenCache;
 import org.apache.curator.framework.recipes.cache.PathChildrenCache.StartMode;
 import org.apache.curator.framework.recipes.cache.PathChildrenCacheEvent;
 import org.apache.curator.framework.recipes.cache.PathChildrenCacheListener;
+import org.apache.curator.retry.RetryNTimes;
 import org.apache.zookeeper.CreateMode;
 import org.apache.zookeeper.ZooDefs.Ids;
 import org.slf4j.Logger;
@@ -18,6 +22,7 @@ import org.springframework.stereotype.Component;
 @Component
 public class DistributedLock {
 
+    public static final String zkServerPath = "192.168.202.61:2181,192.168.202.62:2181,192.168.202.63:2181";
 
     private CuratorFramework client = null;		// zk客户端
 
@@ -36,6 +41,17 @@ public class DistributedLock {
 
     }
 
+    {
+        // 使用命名空间
+        RetryPolicy retryPolicy = new RetryNTimes(10,5000);
+        client = CuratorFrameworkFactory.builder()
+                .connectString(zkServerPath)
+                .sessionTimeoutMs(30000).retryPolicy(retryPolicy)
+                .namespace("ZKLocks-Namespace").build();
+        client.start();
+        System.out.println("DistributedLock()...");
+    }
+
     public DistributedLock(CuratorFramework client) {
         this.client = client;
     }
@@ -44,9 +60,6 @@ public class DistributedLock {
      * @Description: 初始化锁
      */
     public void init() {
-
-        // 使用命名空间
-        client = client.usingNamespace("ZKLocks-Namespace");
 
         /**
          * 创建zk锁的总节点，相当于eclipse的工作空间下的项目
@@ -87,6 +100,7 @@ public class DistributedLock {
                 log.info("获得分布式锁成功...");
                 return;										// 如果锁的节点能被创建成功，则锁没有被占用
             } catch (Exception e) {
+                e.printStackTrace();
                 log.info("获得分布式锁失败...");
                 try {
                     // 如果没有获取到锁，需要重新设置同步资源值

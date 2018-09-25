@@ -88,7 +88,7 @@ public class CulsterServiceImpl implements CulsterService {
         // 执行订单流程之前使得当前业务获得分布式锁
         distributedLock.getLock();
 
-        int buyCounts = 6;
+        int buyCounts = orderNum;
 
         // 1. 判断库存
         int stockCounts = itemsService.getItemCounts(itemId);
